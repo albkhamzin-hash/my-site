@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хамзин Альберт Галиевич — Финансовый директор | CFO</title>
+<style>
+  :root{
+    --navy:#0f2438;
+    --navy-2:#1a3a5c;
+    --accent:#c9a227;
+    --accent-2:#e0b83a;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --text:#1c2733;
+    --muted:#5b6b7c;
+    --line:#e2e8f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;
+  }
+
+  /* ===== ШАПКА ===== */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:#fff;padding:70px 20px 60px;position:relative;overflow:hidden;
+  }
+  header::after{
+    content:"";position:absolute;right:-120px;top:-120px;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,162,39,.18) 0%,transparent 70%);
+  }
+  .wrap{max-width:1080px;margin:0 auto;position:relative;z-index:2}
+  .head-top{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+  .avatar{
+    width:110px;height:110px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    font-size:40px;font-weight:700;color:var(--navy);
+    box-shadow:0 8px 28px rgba(0,0,0,.35);
+  }
+  h1{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:.3px}
+  .role{
+    font-size:clamp(15px,2vw,19px);color:var(--accent-2);
+    font-weight:600;margin-top:6px;
+  }
+  .meta{margin-top:14px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:#c3d0dd}
+  .meta span{display:flex;align-items:center;gap:6px}
+  .contacts{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:12px 24px;border-radius:8px;
+    text-decoration:none;font-weight:600;font-size:15px;
+    transition:.25s;border:2px solid transparent;
+  }
+  .btn-gold{background:var(--accent);color:var(--navy)}
+  .btn-gold:hover{background:var(--accent-2);transform:translateY(-2px)}
+  .btn-out{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+  .btn-out:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ===== ЦИФРЫ ===== */
+  .stats{
+    background:var(--navy-2);padding:0 20px;
+  }
+  .stats-grid{
+    max-width:1080px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:1px;background:rgba(255,255,255,.12);
+  }
+  .stat{
+    background:var(--navy-2);padding:28px 18px;text-align:center;color:#fff;
+  }
+  .stat b{display:block;font-size:clamp(24px,3.4vw,34px);color:var(--accent-2);line-height:1.2}
+  .stat span{font-size:13px;color:#a9bacb;display:block;margin-top:6px}
+
+  /* ===== СЕКЦИИ ===== */
+  section{padding:64px 20px}
+  .section-inner{max-width:1080px;margin:0 auto}
+  h2{
+    font-size:clamp(22px,3vw,30px);color:var(--navy);
+    margin-bottom:8px;position:relative;padding-bottom:14px;
+  }
+  h2::after{
+    content:"";position:absolute;left:0;bottom:0;
+    width:64px;height:4px;background:var(--accent);border-radius:2px;
+  }
+  .sub{color:var(--muted);margin-bottom:36px;font-size:15px}
+
+  /* Навыки */
+  .skills{display:flex;flex-wrap:wrap;gap:10px}
+  .skill{
+    background:var(--card);border:1px solid var(--line);
+    padding:9px 16px;border-radius:20px;font-size:14px;
+    color:var(--navy-2);font-weight:500;transition:.2s;
+  }
+  .skill:hover{border-color:var(--accent);background:#fffdf6}
+
+  /* Опыт */
+  .job{
+    background:var(--card);border-radius:12px;padding:26px 28px;
+    margin-bottom:18px;border-left:4px solid var(--accent);
+    box-shadow:0 2px 12px rgba(15,36,56,.06);
+    transition:.25s;
+  }
+  .job:hover{box-shadow:0 6px 24px rgba(15,36,56,.12);transform:translateX(3px)}
+  .job-head{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:baseline}
+  .job-title{font-size:17px;font-weight:700;color:var(--navy)}
+  .job-date{
+    font-size:13px;font-weight:600;color:var(--accent);
+    background:#fdf8e8;padding:4px 12px;border-radius:14px;white-space:nowrap;
+  }
+  .job-comp{color:var(--navy-2);font-weight:600;font-size:15px;margin-top:4px}
+  .job-desc{color:var(--muted);font-size:14.5px;margin-top:12px}
+  .job-res{
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);
+    font-size:14px;color:var(--text);
+  }
+  .job-res strong{color:var(--navy)}
+
+  /* Образование */
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .edu{
+    background:var(--card);border-radius:12px;padding:22px;
+    border:1px solid var(--line);box-shadow:0 2px 10px rgba(15,36,56,.05);
+  }
+  .edu b{color:var(--navy);display:block;margin-bottom:4px}
+  .edu span{color:var(--muted);font-size:14px}
+  .edu-year{
+    display:inline-block;font-size:12px;font-weight:700;color:var(--navy);
+    background:var(--accent);padding:3px 10px;border-radius:12px;margin-bottom:10px;
+  }
+
+  /* Обо мне */
+  .about-box{
+    background:linear-gradient(135deg,var(--navy),var(--navy-2));
+    color:#e8eef5;border-radius:14px;padding:36px;font-size:16px;
+  }
+  .about-box p+p{margin-top:14px}
+  .about-box .hl{color:var(--accent-2);font-weight:600}
+
+  /* Футер */
+  footer{
+    background:var(--navy);color:#8fa3b8;text-align:center;
+    padding:34px 20px;font-size:14px;
+  }
+  footer a{color:var(--accent-2);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  @media(max-width:600px){
+    header{padding:50px 18px 44px}
+    section{padding:46px 18px}
+    .job{padding:22px 20px}
+    .about-box{padding:26px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header>
+  <div class="wrap">
+    <div class="head-top">
+      <div class="avatar">АХ</div>
+      <div>
+        <h1>Хамзин Альберт Галиевич</h1>
+        <div class="role">Финансовый директор (CFO) · Директор по экономике и финансам</div>
+        <div class="meta">
+          <span>📍 Москва</span>
+          <span>🎓 MBA Финансы (РАНХиГС)</span>
+          <span>💼 Опыт 20+ лет</span>
+          <span>✈️ Готов к командировкам</span>
+        </div>
+      </div>
+    </div>
+    <div class="contacts">
+      <a class="btn btn-gold" href="tel:+79272072159">📞 +7 (927) 207-21-59</a>
+      <a class="btn btn-out" href="mailto:albkhamzin@yandex.ru">✉️ albkhamzin@yandex.ru</a>
+    </div>
+  </div>
+</header>
+
+<!-- ЦИФРЫ -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat"><b>20+</b><span>лет в финансах</span></div>
+    <div class="stat"><b>100 млрд ₽</b><span>макс. оборот группы</span></div>
+    <div class="stat"><b>80 млрд ₽</b><span>привлечено кредитов</span></div>
+    <div class="stat"><b>3 млрд ₽</b><span>налоговая экономия</span></div>
+  </div>
+</div>
+
+<!-- КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ -->
+<section>
+  <div class="section-inner">
+    <h2>Ключевые компетенции</h2>
+    <p class="sub">Управление финансами растущих компаний, девелопмент, автоматизация, M&A</p>
+    <div class="skills">
+      <span class="skill">Стратегическое планирование</span>
+      <span class="skill">Управленческий учёт</span>
+      <span class="skill">Бюджетирование</span>
+      <span class="skill">Финансовое моделирование</span>
+      <span class="skill">Налоговое планирование</span>
+      <span class="skill">МСФО</span>
+      <span class="skill">M&A</span>
+      <span class="skill">ЗПИФ недвижимости</span>
+      <span class="skill">Проектное финансирование</span>
+      <span class="skill">Автоматизация (1С, БИТ, ERP)</span>
+      <span class="skill">Антикризисное управление</span>
+      <span class="skill">Управление рисками</span>
+      <span class="skill">Оценка стоимости бизнеса</span>
+      <span class="skill">Казначейство / Cash management</span>
+      <span class="skill">214-ФЗ</span>
+      <span class="skill">IPO-готовность</span>
+    </div>
+  </div>
+</section>
+
+<!-- ОПЫТ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <h2>Опыт работы</h2>
+    <p class="sub">Ключевые позиции за последние годы</p>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Заместитель финансового директора</div>
+          <div class="job-comp">ФД Неометрия (ГК Элиас Групп) · Девелопмент</div>
+        </div>
+        <div class="job-date">09.2025 – 06.2026</div>
+      </div>
+      <div class="job-desc">Руководитель проекта комплексной автоматизации девелопмента. Оборот до 30 млрд ₽, 175 юрлиц, МСФО.</div>
+      <div class="job-res"><strong>Результаты:</strong> снижение отклонений бюджетов с 20% до 4%; потенциал снижения стоимости проекта на 10% (10+ млн ₽); снижение риска ошибок на 80%; автоматизация 60% операций.</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Финансовый директор</div>
+          <div class="job-comp">ПАО «Трёхгорная мануфактура» · Коммерческая недвижимость</div>
+        </div>
+        <div class="job-date">04.2025 – 09.2025</div>
+      </div>
+      <div class="job-desc">Управление финансами публичного АО, 180 тыс. м², оборот до 7 млрд ₽, 11 человек в подчинении.</div>
+      <div class="job-res"><strong>Результаты:</strong> реструктуризация кредита 4,5 млрд ₽ (−2 п.п., экономия до 50 млн ₽/год); немодифицированное аудиторское заключение; финмодели реконструкции на 7,5 млрд ₽ (+1 млрд ₽ EBITDA/год).</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Заместитель финансового директора</div>
+          <div class="job-comp">«Виктор и К. Управление бизнесом» · Девелопмент, ТРЦ</div>
+        </div>
+        <div class="job-date">04.2023 – 03.2025</div>
+      </div>
+      <div class="job-desc">Финансовый руководитель блока девелопмента. 2 ТРЦ 250 тыс. м², 13 юрлиц, оборот 3 млрд ₽.</div>
+      <div class="job-res"><strong>Результаты:</strong> запуск девелоперского направления с нуля (+3 млрд ₽ выручки, +500 млн ₽ прибыли); одобрено проектное финансирование 4 млрд ₽; экономия 17 млн ₽ на автоматизации.</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Заместитель финансового директора группы</div>
+          <div class="job-comp">Dogma · Топ-3 девелопер РФ</div>
+        </div>
+        <div class="job-date">12.2022 – 04.2023</div>
+      </div>
+      <div class="job-desc">Финансовый руководитель регионального направления. Оборот до 100 млрд ₽, 70+ юрлиц.</div>
+      <div class="job-res"><strong>Результаты:</strong> приобретены и интегрированы 4 региональных проекта; финмодели 7 проектов на 1,5 млн м².</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Финансовый директор</div>
+          <div class="job-comp">УК «Юг-сервис» · Управление жилой недвижимостью</div>
+        </div>
+        <div class="job-date">08.2021 – 09.2022</div>
+      </div>
+      <div class="job-desc">Вывод компании из кризиса. 1 млн м², 230 человек, оборот 0,5 млрд ₽.</div>
+      <div class="job-res"><strong>Результаты:</strong> рост прибыли на 50 млн ₽/год; сокращение дебиторки на 50 млн ₽; УК вошла в тройку лучших в Самарской области.</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Заместитель министра строительства</div>
+          <div class="job-comp">Министерство строительства Самарской области</div>
+        </div>
+        <div class="job-date">04.2019 – 04.2021</div>
+      </div>
+      <div class="job-desc">Управление 50 сотрудниками, контролируемое финансирование до 17 млрд ₽/год.</div>
+      <div class="job-res"><strong>Результаты:</strong> успешная реформа 214-ФЗ (эскроу); реструктуризация задолженности 125 млн ₽; вывод из предбанкротного состояния фонда с сохранением 1500 Га.</div>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Финансовый директор группы компаний, первый заместитель генерального директора</div>
+          <div class="job-comp">Девелоперская компания «Древо» · Девелопер №1 в Самарской области</div>
+        </div>
+        <div class="job-date">09.2012 – 03.2019</div>
+      </div>
+      <div class="job-desc">Рост выручки с 500 млн до 10 млрд ₽ за 4 года. 1,2 млн м² построено, 50 юрлиц, 50 человек в подчинении.</div>
+      <div class="job-res"><strong>Результаты:</strong> создана ГК стоимостью 10 млрд ₽; налоговая экономия 3 млрд ₽; привлечено кредитов на 20 млрд ₽; финмодели 50 проектов на 50 млрд ₽.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ОБРАЗОВАНИЕ -->
+<section>
+  <div class="section-inner">
+    <h2>Образование и квалификация</h2>
+    <p class="sub">Высшее экономическое образование, MBA, регулярное повышение квалификации</p>
+    <div class="edu-grid">
+      <div class="edu">
+        <span class="edu-year">2003</span>
+        <b>Самарская государственная экономическая академия</b>
+        <span>Бухгалтерский учёт, аудит и контроль налогообложения</span>
+      </div>
+      <div class="edu">
+        <span class="edu-year">2009</span>
+        <b>MBA «Финансы» — РАНХиГС при Президенте РФ</b>
+        <span>Высшая школа финансового менеджмента</span>
+      </div>
+      <div class="edu">
+        <span class="edu-year">2023</span>
+        <b>Курс «Data Scientist» — Skillbox</b>
+        <span>Аналитика данных, Python, ML</span>
+      </div>
+      <div class="edu">
+        <span class="edu-year">2020</span>
+        <b>РАНХиГС — «Системное управление регионом»</b>
+        <span>Программа для руководителей</span>
+      </div>
+      <div class="edu">
+        <span class="edu-year">2007</span>
+        <b>Корпоративный менеджер — Школа бизнеса Открытого Университета Великобритании</b>
+        <span>MBA «Стратегия»</span>
+      </div>
+      <div class="edu">
+        <span class="edu-year">2005</span>
+        <b>IAB «The Certificate in book-keeping» (Великобритания)</b>
+        <span>Международная квалификация</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОБО МНЕ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <h2>Обо мне</h2>
+    <p class="sub">Подход к работе и профессиональная позиция</p>
+    <div class="about-box">
+      <p>Системное и стратегическое мышление, высокая работоспособность, знание всех участков работы экономистов и бухгалтеров. Успешно управляю финансами <span class="hl">растущих компаний</span>, отличные навыки реструктуризации (в т.ч. антикризисной) финансовой модели предприятия.</p>
+      <p>Работал в основных отраслях — могу работать в любой. Наиболее эффективен в компании, <span class="hl">ориентированной на реализацию стратегии</span>, в которой выстроена система регулярного менеджмента. Особенно интересны компании, планирующие IPO или уже котирующиеся на бирже.</p>
+      <p>Если вам нужен высокий уровень финансового контроля, <span class="hl">не сдерживающий рост компании, а помогающий расти</span> и увеличивать эффективность — я тот, кто вам нужен.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+  <p>© Хамзин Альберт Галиевич · Финансовый директор (CFO)</p>
+  <p style="margin-top:8px">
+    <a href="tel:+79272072159">+7 (927) 207-21-59</a> ·
+    <a href="mailto:albkhamzin@yandex.ru">albkhamzin@yandex.ru</a> ·
+    Москва
+  </p>
+</footer>
+
+</body>
+</html>
